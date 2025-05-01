@@ -7,12 +7,12 @@ Raw text is 980kb, 'compressed' to 397kb, including decoder on disk 1.
 
 The raw input text is provided in the file "01 - The Fellowship Of The Ring-new.txt"
 
-Works by reading 1 bit to determine if the next thing in the input buffer is either a special char, or a word/string.
+The prgram works by reading 1 bit from the input buffer to determine if the next thing in the input buffer is either a special char, or a word/string.
 If its a word, read 4 more bits to determine which wordbank to access (2-16)
 Depending on the wordbanks size, a fixed number of bits is read to determine the wordnumber. (In worst case 12 bits to get a number from 0..4095. Wordbank 7 usually gets this big.)
-In this way any word is using a max. 16 bits, no matter the wordlength. Which is pretty good imho.
+In this way any word is using a max. 16 bits, no matter the wordlength. Ofcourse the word itself is stored in the executeable, but in a 5-bit stream.
 
-But if it is a special char, read 5 more bits to get a number between 0..31 to determine which special char it is.
+If it is a special char, read 5 more bits to get a number between 0..31 to determine which special char it is. (To be optimized)
 
 How to run
 -----------
@@ -26,6 +26,7 @@ This ia about a full c64 screen every 2nd second.
 Several days of joyfull reading.
 
 How to use the program.
+-----------------------
 When started, a full screen of text will be displayed.
 
 A menu in the bottom will give you the options to
