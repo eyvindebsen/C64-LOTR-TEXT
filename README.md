@@ -7,6 +7,8 @@ Raw text is 980kb, 'compressed' to 397kb, including decoder on disk 1.
 
 The raw input text is provided in the file "01 - The Fellowship Of The Ring-new.txt"
 
+This is based on an old program to scan a text for different words. Storing every word found in a alphabetical list. These words can be stored using 5 bits (a-z) ignoring case. This "compresses" the word lists to short streams, which can be stored entirely in memory of the Commodore 64, for fast access.
+
 The program works by reading 1 bit from the input buffer to determine if the next thing in the input buffer is either a special char, or a word/string.
 If its a word, read 4 more bits to determine which wordbank to access (2-16)
 Depending on the wordbanks size, a fixed number of bits is read to determine the wordnumber. (In worst case 12 bits to get a number from 0..4095. Wordbank 7 usually gets this big.)
